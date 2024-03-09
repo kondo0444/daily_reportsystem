@@ -191,6 +191,6 @@ public class EmployeeController {
             return "employees/edit";
         }
 
-        return "redirect:/employees/";
+        return "redirect:/employees";
     }
 }
