@@ -44,7 +44,7 @@ public class ReportController {
      * @param model モデル
      * @return viewの名称
      */
-    @GetMapping("/")
+    @GetMapping()
     public String list(@AuthenticationPrincipal UserDetail user, Model model) {
 
         Employee employee = user.getEmployee();
@@ -108,7 +108,7 @@ public class ReportController {
             return create(report, user);
         }
 
-        return "redirect:/reports/";
+        return "redirect:/reports";
     }
 
     /**
@@ -123,7 +123,7 @@ public class ReportController {
         Report report = reportService.findById(id);
         if(Objects.isNull(report)) {
             //入れ違いで削除されて表示不可なので一覧にリダイレクト
-            return "redirect:/reports/";
+            return "redirect:/reports";
         }
 
         model.addAttribute("report", report);
@@ -140,7 +140,7 @@ public class ReportController {
 
         reportService.delete(id);
 
-        return "redirect:/reports/";
+        return "redirect:/reports";
     }
 
     /**
@@ -155,7 +155,7 @@ public class ReportController {
         Report report = reportService.findById(id);
         if(Objects.isNull(report)) {
             //入れ違いで削除されて更新不可なので一覧にリダイレクト
-            return "redirect:/reports/";
+            return "redirect:/reports";
         }
 
         model.addAttribute("report", report);
@@ -185,6 +185,6 @@ public class ReportController {
             return "reports/edit";
         }
 
-        return "redirect:/reports/";
+        return "redirect:/reports";
     }
 }
