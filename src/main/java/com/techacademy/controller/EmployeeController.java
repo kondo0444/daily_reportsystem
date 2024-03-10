@@ -126,7 +126,7 @@ public class EmployeeController {
             return create(employee);
         }
 
-        return "redirect:/employees/";
+        return "redirect:/employees";
     }
 
     /**
@@ -147,7 +147,7 @@ public class EmployeeController {
             return detail(code, model);
         }
 
-        return "redirect:/employees/";
+        return "redirect:/employees";
     }
 
     /**
